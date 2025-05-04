@@ -1,0 +1,5 @@
+package com.ldthanh.servive;
+
+public interface TaskService {
+
+}

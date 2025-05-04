@@ -1,0 +1,6 @@
+package com.ldthanh.repository;
+
+
+public class StudentRepository {
+
+}

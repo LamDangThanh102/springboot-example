@@ -1,0 +1,38 @@
+package com.ldthanh.service.Impl;
+
+import com.ldthanh.dto.StudentDTO;
+import com.ldthanh.service.StudentService;
+
+public class StudentServiceImpl implements StudentService {
+
+	@Override
+	public void createStudent(StudentDTO studentDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getStudentById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getAllStudents() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStudent(Long id, StudentDTO studentDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteStudent(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

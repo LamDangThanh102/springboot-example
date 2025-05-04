@@ -1,0 +1,66 @@
+package com.ldthanh.servive.Impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ldthanh.dto.TaskDTO;
+import com.ldthanh.entity.Task;
+import com.ldthanh.repository.TaskRepository;
+import com.ldthanh.servive.TaskService;
+
+@Service
+public class TaskServiceImpl implements TaskService {
+
+	@Autowired
+	private TaskRepository taskRepository;
+
+	@Override
+	public Optional<Task> getTaskById(Long id) {
+		return taskRepository.findById(id);
+	}
+
+	@Override
+	public List<Task> getAllTasks() {
+		return taskRepository.findAll();
+	}
+
+	@Override
+	public Task createTask(TaskDTO task) {
+		Task newTask = new Task();
+		newTask.setTitle(task.getTitle());
+		newTask.setDescription(task.getDescription());
+		newTask.setCompleted(task.isCompleted());
+		return taskRepository.save(newTask);
+	}
+
+	@Override
+	public Optional<Task> updateTask(Long id, TaskDTO task) {
+		return taskRepository.findById(id).map(t -> {
+			t.setTitle(task.getTitle());
+			t.setDescription(task.getDescription());
+			t.setCompleted(task.isCompleted());
+			return taskRepository.save(t);
+		});
+	}
+
+	@Override
+	public Optional<Task> updateTaskStatus(Long id) {
+		return taskRepository.findById(id).map(t -> {
+			t.setCompleted(!t.isCompleted());
+			return taskRepository.save(t);
+		});
+	}
+
+	@Override
+	public boolean deleteTask(Long id) {
+		if (taskRepository.existsById(id)) {
+			taskRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+
+}

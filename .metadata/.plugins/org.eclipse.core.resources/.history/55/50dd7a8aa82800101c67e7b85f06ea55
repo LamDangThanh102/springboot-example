@@ -1,0 +1,9 @@
+package com.ldthanh.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ldthanh.dto.StudentDTO;
+
+public interface StudentRepository extends JpaRepository<StudentDTO, Long>{
+
+}

@@ -1,0 +1,57 @@
+package com.ldthanh.service.Impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ldthanh.dto.StudentDTO;
+import com.ldthanh.entity.Student;
+import com.ldthanh.repository.StudentRepository;
+import com.ldthanh.service.StudentService;
+
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	private StudentRepository studentRepository;
+
+	@Override
+	public Student createStudent(StudentDTO dto) {
+		Student student = new Student();
+		student.setName(dto.getName());
+		student.setAge(dto.getAge());
+		student.setEmail(dto.getEmail());
+
+		return studentRepository.save(student);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return studentRepository.findAll();
+	}
+
+	@Override
+	public Optional<Student> getStudentById(Long id) {
+		return studentRepository.findById(id);
+	}
+
+	@Override
+	public Optional<Student> updateStudent(Long id, StudentDTO dto) {
+		return studentRepository.findById(id).map(student -> {
+			student.setName(dto.getName());
+			student.setEmail(dto.getEmail());
+			student.setAge(dto.getAge());
+			return studentRepository.save(student);
+		});
+	}
+
+	@Override
+	public boolean deleteStudent(Long id) {
+		if (studentRepository.existsById(id)) {
+			studentRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+
+}

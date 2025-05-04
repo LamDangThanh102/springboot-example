@@ -1,0 +1,5 @@
+package com.ldthanh.service;
+
+public interface StudentService {
+
+}

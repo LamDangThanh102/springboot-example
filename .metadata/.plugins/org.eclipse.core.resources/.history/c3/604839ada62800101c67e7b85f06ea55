@@ -1,0 +1,7 @@
+package com.ldthanh.service.Impl;
+
+import com.ldthanh.service.StudentService;
+
+public class StudentServiceImpl implements StudentService {
+
+}

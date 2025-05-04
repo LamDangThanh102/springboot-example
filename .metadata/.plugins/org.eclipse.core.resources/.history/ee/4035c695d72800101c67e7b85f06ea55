@@ -1,0 +1,7 @@
+package com.ldthanh.servive.Impl;
+
+import com.ldthanh.servive.TaskService;
+
+public class TaskServiceImpl implements TaskService {
+
+}

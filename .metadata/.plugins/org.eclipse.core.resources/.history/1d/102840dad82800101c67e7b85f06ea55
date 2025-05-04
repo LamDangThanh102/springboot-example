@@ -1,0 +1,10 @@
+package com.ldthanh.servive.Impl;
+
+import org.springframework.stereotype.Service;
+
+import com.ldthanh.servive.TaskService;
+
+@Service
+public class TaskServiceImpl implements TaskService {
+
+}

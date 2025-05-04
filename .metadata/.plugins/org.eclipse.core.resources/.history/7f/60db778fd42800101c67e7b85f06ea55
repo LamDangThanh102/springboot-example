@@ -1,0 +1,5 @@
+package com.ldthanh.entity;
+
+public class Task {
+
+}
